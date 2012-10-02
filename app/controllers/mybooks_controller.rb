@@ -11,8 +11,8 @@ class MybooksController < ApplicationController
   end
 
   def administrator
-    @admin = Admin.new
-     
+    @admin = Admin.new  
+       
     respond_to do |format|
       format.html
     end 
