@@ -1,0 +1,24 @@
+<p>
+  <b>Name:</b>
+  <%= @mybook.name %>
+</p>
+
+<p>
+  <b>When:</b>
+  <%= @mybook.when %>
+</p>
+
+<p>
+  <b>Intime:</b>
+  <%= @mybook.intime %>
+</p>
+
+<p>
+  <b>Wish:</b>
+  <%= @mybook.wish %>
+</p>
+
+
+<%= link_to 'Edit', edit_mybook_path(@mybook) %> |
+<%= link_to 'Back', mybooks_path %>
+<%= cookies[:user_name] %>
