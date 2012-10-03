@@ -1,4 +1,5 @@
 class MybooksController < ApplicationController
+
   # GET /mybooks
   def index
     @mybooks = Mybook.all
@@ -8,19 +9,18 @@ class MybooksController < ApplicationController
     end
   end
 
-  def administrator
-    @admin = Admin.new  
+  def login
       if params[:username] == 'admin' && params[:password] == 'martini'
 	cookies[:username] = { :value => "admin", :expires => Time.now + 3600 }
 	cookies[:password] = { :value => "martini", :expires => Time.now + 3600 }
-        redirect_to mybooks_path
+        redirect_to mybooks_path, :notice => "You are loged in!"
       end
   end
 
   def logout
     cookies.delete :username
     cookies.delete :password
-    redirect_to mybooks_path
+    redirect_to mybooks_path, :notice => "You are loged out!"
   end
 
   # GET /mybooks/1
@@ -44,7 +44,7 @@ class MybooksController < ApplicationController
   # GET /mybooks/1/edit
   def edit
     if cookies[:username] != 'admin'
-      redirect_to mybooks_path 
+      redirect_to mybooks_path, :notice => "You have to login like Admin!"
     end
     @mybook = Mybook.find(params[:id])
 
@@ -80,8 +80,7 @@ class MybooksController < ApplicationController
   def destroy
   
       if cookies[:username] != 'admin'
-            redirect_to mybooks_path
-                
+            redirect_to mybooks_path, :notice => "You have to login like Admin!"          
       else
   
     @mybook = Mybook.find(params[:id])

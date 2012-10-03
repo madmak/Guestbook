@@ -1,6 +1,6 @@
 Guestbook::Application.routes.draw do
   resources :mybooks
-  match 'admin' => 'mybooks#administrator'
+  match 'login' => 'mybooks#login'
   match 'logout'=> 'mybooks#logout'
   # The priority is based upon order of creation:
   # first created -> highest priority.
