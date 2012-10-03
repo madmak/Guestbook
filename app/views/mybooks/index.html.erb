@@ -27,3 +27,9 @@
 <br />
 <% cookies[:user_name]="martin" %>
 <%= link_to 'New Mybook', new_mybook_path %>
+<% if cookies[:username] != 'admin' %>
+&nbsp;
+<%= link_to 'Login', admin_path %>
+<% else %>
+<%= link_to 'Logout Admin', logout_path %>
+<% end %>

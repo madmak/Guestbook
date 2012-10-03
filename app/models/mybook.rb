@@ -5,3 +5,6 @@ end
 class Admin
   attr_accessor :username, :password
 end
+
+class Logout
+end
