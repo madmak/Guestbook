@@ -2,8 +2,8 @@ class MybooksController < ApplicationController
 
   # GET /mybooks
   def index
-    @mybooks = Mybook.all
-
+    @mybooks = Mybook.order(:id).page(params[:page]).per(10)
+    
     respond_to do |format|
       format.html # index.html.erb
     end

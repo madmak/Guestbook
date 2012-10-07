@@ -28,7 +28,10 @@
 <%= link_to 'New Mybook', new_mybook_path %>
 <% if cookies[:username] != 'admin' %>
 &nbsp;
-<%= link_to 'Login', admin_path %>
+<%= link_to 'Login', login_path %>
 <% else %>
 <%= link_to 'Logout Admin', logout_path %>
 <% end %>
+<br />
+<br />
+<%= paginate @list %>
